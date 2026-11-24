@@ -1,0 +1,88 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="manifest" href="/manifest.webmanifest"><link rel="apple-touch-icon" href="/arcade-192.png"><meta name="theme-color" content="#111b3e"><meta name="apple-mobile-web-app-capable" content="yes"><title>Automate It or Keep It? · EQUATE Flow Arcade</title><style>
+:root{--blue:#304db7;--navy:#111b3e;--mint:#91f4bd;--pink:#ffb0bb;--paper:#fbf7ed;--ink:#142047}*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--paper);background-image:radial-gradient(#dddaca 1px,transparent 1px);background-size:18px 18px;font:17px/1.45 'Segoe UI',Arial,sans-serif}header,footer,.shell{max-width:1190px;margin:auto;padding:18px clamp(16px,4vw,50px)}header,footer,.row{display:flex;align-items:center;justify-content:space-between;gap:12px}header{border-bottom:2px solid var(--ink);font-weight:750}header b{letter-spacing:.11em}header span,footer,.eyebrow,.rail,.tiny{font:700 .86rem/1.5 Consolas,monospace}.shell{padding-top:28px}.rail{display:flex;align-items:center;gap:12px;margin-bottom:18px}.rail i{display:block;width:30px;height:8px;background:#d3d5d7;transform:skew(-16deg)}.rail i.on{background:var(--blue)}main{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(260px,.85fr);gap:20px}.board,.panel{border:2px solid var(--navy);border-radius:18px;box-shadow:4px 5px 0 var(--navy);padding:clamp(20px,3.5vw,42px)}.board{background:var(--navy);color:white;position:relative;overflow:hidden;min-height:400px}.panel{background:white;align-self:stretch}.scene{display:flex;align-items:center;gap:0;margin:28px 0}.tile{width:62px;height:62px;background:#dbe3ff;color:var(--blue);border:2px solid #8c9cdf;border-radius:12px;display:grid;place-items:center;box-shadow:0 4px 0 #5364ac}.tile:nth-of-type(2){background:var(--mint);color:#185b47}.scene i{display:block;width:27px;height:3px;background:#8e9acc}.tile svg{width:36px;height:36px}.eyebrow{color:#4c6299;letter-spacing:.06em;text-transform:uppercase}.board .eyebrow{color:#b3c5ff}h1,h2{line-height:1.02;letter-spacing:-.05em}h1{font-size:clamp(2.5rem,5.9vw,5.25rem);margin:14px 0}h2{font-size:clamp(1.65rem,3vw,2.65rem);margin:12px 0}.lead{font-size:clamp(1.12rem,1.8vw,1.45rem);color:#e0e6ff;max-width:47ch}em{color:var(--mint);font-style:normal}button,.download{font:750 1rem/1.2 inherit;font-family:inherit;font-size:1.05rem;font-weight:750;cursor:pointer;color:var(--ink);background:var(--mint);border:2px solid var(--navy);border-radius:10px;box-shadow:0 3px 0 #060c23;padding:14px 18px;text-decoration:none;display:inline-block;margin:5px 6px 5px 0}button:hover,.download:hover{filter:brightness(.96);transform:translateY(-1px)}button:focus-visible,a:focus-visible{outline:4px solid #ffab43}.alt{background:var(--pink)}.ghost{background:#e4e9ff}.choices{display:flex;flex-wrap:wrap}.metric{font-weight:900;font-size:2.8rem}.bar{height:16px;border:1px solid #8694c3;border-radius:5px;overflow:hidden;background:#e1e5ee;margin:5px 0 12px}.bar i{background:#399b70;display:block;height:100%}.bar.manual i{background:#d96480}.code{width:min(220px,100%);display:block;margin:auto}.roundlist{list-style:none;padding:0}.roundlist li{border-top:1px solid #dce1ef;padding:8px 0;display:flex;gap:8px;align-items:center}.roundlist li b{margin-left:auto;white-space:nowrap}.roundlist svg{width:22px;height:22px;flex:none;color:var(--blue)}footer{margin-top:24px;flex-wrap:wrap}#err{text-align:center;color:#a12539}.board .tag{color:var(--mint);font-weight:700}@media(max-width:740px){main{grid-template-columns:1fr}.board{min-height:auto}.rail{gap:7px}.rail i{width:17px}.shell{padding-top:16px}header{font-size:.92rem}.scene{margin:16px 0}.tile{width:48px;height:48px}.panel{padding:20px}}
+
+
+button,.download{min-height:54px;padding:16px 22px;font-size:1.15rem}
+.choices{display:grid;gap:14px;margin-top:20px}.choices button{display:flex;align-items:center;gap:14px;text-align:left;width:100%;min-height:74px;margin:0;padding:14px 18px;font-size:clamp(1.3rem,2.25vw,1.75rem);font-weight:800;line-height:1.15}
+.choices svg{flex:none;width:34px;height:34px;padding:5px;background:#ffffff80;border-radius:8px}
+@media(max-width:740px){.choices button{min-height:68px}}
+header{background:#111b3e;color:#fff;border-radius:0 0 16px 16px}header b:before{content:"ϟ";background:#91f4bd;color:#111b3e;font-size:1.15rem;display:inline-grid;place-items:center;width:30px;height:30px;border-radius:9px;margin-right:10px}button,.download{touch-action:manipulation}@media(max-width:740px){.shell{padding-bottom:env(safe-area-inset-bottom)}.board{border-radius:20px}header{position:sticky;top:0;z-index:2}.panel .choices button:active{transform:scale(.98)}.rail{margin-top:8px}} </style><header><b>EQUATE</b><span>FLOW ARCADE / POWER AUTOMATE</span></header><div class="shell"><div class="rail"></div><main></main><p role="alert" id="err"></p></div><footer><span>Watira.ai · EQUATE training</span><span>Live workshop</span></footer><script>const preview=false;
+if(location.search && new URLSearchParams(location.search).has('join') || new URLSearchParams(location.search).has('present'))localStorage.setItem('arcade-session',location.search);
+else if(matchMedia('(display-mode: standalone)').matches && localStorage.getItem('arcade-session'))location.replace('/'+localStorage.getItem('arcade-session'));
+const questions=[
+['The Weekly Reminder','Every Monday, an employee sends the same email reminding department focal points to submit their weekly reports.','Automate it','Schedule an Outlook reminder for Monday at 9:00 AM. The timing, recipients and message follow a repeatable rule.'],
+['The Leave Request','An employee submits a leave request. The manager reviews team availability before deciding whether to approve it.','Keep the decision manual','Power Automate can route the request, send reminders and notify the employee. The manager weighs team coverage and makes the decision.'],
+['The Management Presentation','An employee prepares a strategic presentation that needs data analysis, storytelling and recommendations for management.','Keep the judgment manual','A flow can gather updated figures and notify the presentation owner. The employee interprets the data and decides what to recommend.'],
+['The Request Tracker','Each time someone submits a service request in Microsoft Forms, an employee copies the details into a SharePoint tracking list.','Automate it','Trigger a flow when a form is submitted, retrieve the response details and create the SharePoint list item.'],
+['The Daily Excel Update','Every day, an employee transfers standardized information from an approved source into an Excel tracking table.','Automate it','When new information arrives, add a row to the Excel table. A consistent source and structure make this a good candidate for automation.']];
+// QR Model 2, version 6-L, byte mode, mask 0. Two 68-byte data blocks.
+function qr(text){
+ const bytes=new TextEncoder().encode(text);
+ if(bytes.length>134)throw Error('URL too long');
+ const bits=[],append=(n,len)=>{for(let i=len-1;i>=0;i--)bits.push((n>>>i)&1)};
+ append(4,4);append(bytes.length,8);for(const b of bytes)append(b,8);append(0,4);
+ const data=[];for(let i=0;i<bits.length;i+=8)data.push(bits.slice(i,i+8).reduce((v,b)=>2*v+b,0));
+ for(let pad=0;data.length<136;pad++)data.push(pad%2?17:236);
+ function mul(x,y){let z=0;for(let i=7;i>=0;i--){z=(z<<1)^((z>>7)*285);z^=((y>>i)&1)*x}return z}
+ let gen=[1],root=1;for(let d=0;d<18;d++){const next=Array(gen.length+1).fill(0);gen.forEach((v,i)=>{next[i]^=v;next[i+1]^=mul(v,root)});gen=next;root=mul(root,2)}
+ function ecc(block){const r=[...block,...Array(18).fill(0)];for(let i=0;i<68;i++){const f=r[i];gen.forEach((g,j)=>r[i+j]^=mul(g,f))}return r.slice(68)}
+ const a=data.slice(0,68),b=data.slice(68),ae=ecc(a),be=ecc(b);bits.length=0;
+ for(let i=0;i<68;i++){append(a[i],8);append(b[i],8)}for(let i=0;i<18;i++){append(ae[i],8);append(be[i],8)}
+ const n=41,m=Array.from({length:n},()=>Array(n).fill(null)),set=(x,y,v)=>{if(x>=0&&x<n&&y>=0&&y<n)m[y][x]=!!v};
+ for(let i=0;i<n;i++){set(6,i,i%2===0);set(i,6,i%2===0)}
+ for(const [x,y] of [[3,3],[37,3],[3,37]])for(let j=-4;j<=4;j++)for(let i=-4;i<=4;i++){const r=Math.max(Math.abs(i),Math.abs(j));set(x+i,y+j,r!==2&&r!==4)}
+ for(let j=-2;j<=2;j++)for(let i=-2;i<=2;i++)set(34+i,34+j,Math.max(Math.abs(i),Math.abs(j))!==1);
+ const f=i=>(0x77c4>>i)&1;for(let i=0;i<6;i++)set(8,i,f(i));set(8,7,f(6));set(8,8,f(7));set(7,8,f(8));for(let i=9;i<15;i++)set(14-i,8,f(i));
+ for(let i=0;i<8;i++)set(n-1-i,8,f(i));for(let i=8;i<15;i++)set(8,n-15+i,f(i));set(8,n-8,1);
+ let pos=0,up=true;for(let x=n-1;x>0;x-=2){if(x===6)x--;for(let j=0;j<n;j++){const y=up?n-1-j:j;for(let dx=0;dx<2;dx++){const xx=x-dx;if(m[y][xx]===null)set(xx,y,(bits[pos++]||0)^((xx+y)%2===0))}}up=!up}
+ const path=m.flatMap((row,y)=>row.map((v,x)=>v?'M'+(x+4)+' '+(y+4)+'h1v1h-1z':'')).join('');
+ return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 49 49" shape-rendering="crispEdges"><rect width="49" height="49" fill="white"/><path d="'+path+'"/></svg>'}
+
+
+
+const paths={hand:'M8 13V6a1.5 1.5 0 0 1 3 0v6-8a1.5 1.5 0 0 1 3 0v8-6a1.5 1.5 0 0 1 3 0v7-4a1.5 1.5 0 0 1 3 0v6c0 4-2 7-6 7h-1c-3 0-4-1-6-4l-4-5c-1-2 1-3 3-2l2 2z',
+ bolt:'M13 2 4 14h7l-1 8 10-13h-8z',mail:'M2 5h20v14H2z M3 6l9 7 9-7',calendar:'M3 5h18v16H3z M3 10h18 M7 2v6 M17 2v6',person:'M12 3a4 4 0 1 0 .01 0 M4 21v-2a8 8 0 0 1 16 0v2z',chart:'M2 20h20 M5 17v-5 M11 17V7 M17 17V3',form:'M4 3h16v18H4z M8 8h8 M8 12h8 M8 16h5',table:'M2 4h20v16H2z M2 9h20 M2 14h20 M9 9v11',trophy:'M7 3h10v5c0 8-10 8-10 0z M7 5H3v3q0 4 5 4 M17 5h4v3q0 4-5 4 M12 14v5 M7 21h10',branch:'M5 3v16 M5 14l12-8 M14 5h5v5 M2 16l3 4 3-4'};
+const glyph=k=>'<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="'+paths[k]+'"/></svg>';
+const frames=[['calendar','bolt','mail'],['form','branch','person'],['table','chart','person'],['form','bolt','table'],['form','bolt','table']];
+const scene=keys=>'<div class="scene" aria-hidden="true">'+keys.map((k,i)=>(i?'<i></i>':'')+'<span class="tile">'+glyph(k)+'</span>').join('')+'</div>';
+const button=(id,label,cls='')=>'<button id="'+id+'" class="'+cls+'">'+(id==='auto'?glyph('bolt'):id==='keep'?glyph('hand'):'')+label+'</button>';
+const param=new URLSearchParams(location.search),room=param.get('join')||param.get('present'), presenter=room&&!param.has('join')&&localStorage.getItem('host-'+room);
+const screen=document.querySelector('main'),rail=document.querySelector('.rail'),err=document.querySelector('#err');
+let voter=preview?'sample':localStorage.getItem('voter');if(!voter){voter=Array.from(crypto.getRandomValues(new Uint8Array(16)),x=>x.toString(16).padStart(2,'0')).join('');localStorage.setItem('voter',voter)}
+let state={stage:0,total:0,mine:null,rounds:[]},samples=[],busy=false,reading=false,signature='';
+const joinUrl=location.origin+'/?join='+encodeURIComponent(room||'');
+function pct(n,t){return t?Number((100*n/t).toFixed(1)):0}
+function bars(a,t){if(!t)return '<p>No votes were cast.</p>';return ['Automate it','Keep it manual'].map((x,i)=>{let n=i?t-a:a,p=pct(n,t);return '<div class="row"><b>'+x+'</b><strong>'+p+'%</strong></div><div class="bar '+(i?'manual':'')+'"><i style="width:'+p+'%"></i></div>'}).join('')+'<p class="tiny">'+a+' automate · '+(t-a)+' manual · '+t+' votes</p>'}
+function qrPanel(){const src='data:image/svg+xml;base64,'+btoa(qr(joinUrl));return '<div class="eyebrow">Player entrance</div><h2>Scan to join</h2><img class="code" src="'+src+'" alt="Participant QR code for this game"><a class="download" download="Workshop-Join-QR.svg" href="'+src+'">Download QR</a>'+button('copy','Copy link','ghost')}
+function render(){
+ let s=state.stage,i=Math.floor((s-1)/2),q=questions[i],board='',panel='';
+ rail.innerHTML='<span>'+ (s===11?'Workshop complete':s===0?'Workshop lobby':'Round '+(i+1)+' of 5')+'</span>'+questions.map((_,k)=>'<i class="'+(s===11||k<=i?'on':'')+'"></i>').join('');
+ if(!s){board='<div class="eyebrow">Power Automate workshop</div>'+scene(['calendar','bolt','mail'])+'<h1>Automate it<br><em>or keep it?</em></h1><p class="lead">Five workplace scenarios. Decide what a flow can handle and where people should make the call.</p>';
+ panel=!preview&&presenter?qrPanel(): '<div class="eyebrow">'+(preview?'Practice mode':'Workshop game')+'</div><h2>'+(preview?'Try the challenge':room?'You’re in!':'Ready to play?')+'</h2><p>'+(preview?'Cast your own vote alongside nine sample votes per round.':room?'The first scenario will appear when the presenter starts.':'Create a room and project its QR code for your players.')+'</p>';
+ if(preview||!room||presenter)board+=button(preview||presenter?'advance':'create',preview?'Play preview':presenter?'Start round one':'Create game');
+ }else if(s===11){const a=state.rounds.reduce((v,r)=>v+r.a,0),t=state.rounds.reduce((v,r)=>v+r.total,0),wins=2*a>t;
+ let title,closing;
+ if(!t){title='The board is clear';closing='Open a fresh round and invite the room to make its first move.'}
+ else if(wins){title='<em>Let’s start!</em>';closing='You spotted work worth automating. Turn one of those votes into a flow: pick a trigger, add an action, and press Run.'}
+ else if(2*a===t){title='A perfect split!';closing='Build a leave-request flow with two turns: Power Automate delivers the request, and a manager makes the call.'}
+ else{title='Humans take this round!';closing='Keep the judgment with your team. Give Power Automate the follow-up: send a notification when the decision is made.'}
+ board='<div class="eyebrow">Final scoreboard</div>'+scene(['branch','bolt','trophy'])+'<h1>'+title+'</h1><p class="lead">'+closing+'</p>'+bars(a,t)+(preview||presenter?button('create',preview?'Replay preview':'New game'):'');
+ panel='<div class="eyebrow">All five rounds</div><h2>Automation votes</h2><ul class="roundlist">'+questions.map((q,i)=>{const r=state.rounds[i];return '<li>'+glyph(frames[i][0])+q[0]+'<b>'+(r.total?pct(r.a,r.total)+'%':'No votes')+'</b></li>'}).join('')+'</ul><p class="tiny">Overall percentages count every vote across all rounds.</p>';
+ }else{const open=s%2===1;
+ board='<div class="eyebrow">'+(open?'Voting open':'Round results')+'</div>'+scene(frames[i])+'<h1>'+q[0]+'</h1><p class="lead">'+q[1]+'</p>';
+ if(open){if(presenter||preview&&state.mine!==null){board+='<p class="tag">'+state.total+' votes received</p>'+button('advance','Reveal results');panel=presenter?qrPanel():'<h2>Vote locked in</h2><p>Reveal the results to see how your choice compares with the sample room.</p>'}
+ else{panel='<div class="eyebrow">Your move</div><h2>'+(state.mine===null?'Cast your vote':'Vote received')+'</h2>'+(state.mine===null?'<div class="choices">'+button('auto','Automate it')+button('keep','Keep it manual','alt')+'</div>':'<p>Watch for the room’s results.</p>')}}
+ else{board+='<h2>Room vote</h2>'+bars(state.a,state.total);panel='<div class="eyebrow">Workshop debrief</div><h2>'+q[2]+'</h2><p>'+q[3]+'</p>'+(preview||presenter?button('advance',s===10?'Final scoreboard':'Next round'):'')}}
+ screen.innerHTML='<section class="board">'+board+'</section><aside class="panel">'+panel+'</aside>';
+}
+async function api(body){const r=await fetch(body?'/api':'/api?'+new URLSearchParams({room,voter}),body?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}:{cache:'no-store'});const d=await r.json();if(!r.ok)throw Error(d.error||'Connection lost');return d}
+async function refresh(){if(reading)return;reading=true;try{let d=await api(),key=JSON.stringify(d);if(key!==signature){signature=key;state=d;render()}err.textContent=''}catch(e){err.textContent=e.message}finally{reading=false}}
+screen.onclick=async e=>{const id=e.target.closest('button')?.id;if(!id||busy)return;busy=true;try{
+ if(preview){if(id==='create'){samples=[];state={stage:0,total:0,mine:null,rounds:[]}}else if(id==='advance'){state.stage++;state.mine=null;if(state.stage%2)state.total=0;state.rounds=samples}else{let i=(state.stage-1)/2;state.mine=id==='auto'?0:1;state.a=[6,2,1,7,7][i]+(state.mine===0?1:0);state.total=10;samples[i]={total:10,a:state.a}}render();return}
+ if(id==='copy'){if(navigator.clipboard)await navigator.clipboard.writeText(joinUrl);else prompt('Copy joining link',joinUrl);return}
+ if(id==='create'){const d=await api({op:'create'});localStorage.setItem('host-'+d.id,d.host);location.href='/?present='+d.id;return}
+ if(id==='advance')await api({op:'advance',room,host:presenter,stage:state.stage});else await api({op:'vote',room,stage:state.stage,voter,choice:id==='auto'?0:1});await refresh()
+}catch(e){err.textContent=e.message}finally{busy=false}};
+if(preview||!room)render();else{refresh();setInterval(refresh,1500)}
+
+</script></html>

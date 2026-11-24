@@ -1,0 +1,1 @@
+{"id": "/", "name": "Flow Arcade | Automate It or Keep It?", "short_name": "Flow Arcade", "start_url": "/", "scope": "/", "display": "standalone", "background_color": "#fbf7ed", "theme_color": "#111b3e", "icons": [{"src": "/arcade-192.png", "sizes": "192x192", "type": "image/png"}, {"src": "/arcade-512.png", "sizes": "512x512", "type": "image/png"}]}
